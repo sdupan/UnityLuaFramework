@@ -1,0 +1,60 @@
+package com.game.protobuf;
+
+import "game.proto";
+
+enum MessageAccount{
+		CmdAccountQuickLogin    = 10104; // 断线重连
+		CmdAccountLogin         = 10109; // 登录
+		
+		CmdAccountInit			= 10111;	
+		CmdAccountUpdate		= 10112;	//更新
+}
+
+//{10109}登录[10109]
+message CmdAccountLoginReqMsg {
+	required int32 userType       = 1;
+	required string openID        = 2;
+	required string token         = 3;
+	required string timeStamp     = 4;
+	required string channel       = 5;
+	required string clientVersion = 6;
+	required int32 serverID       = 7;
+	optional string deviceID      = 8;      //设备号
+	optional string smallChannel      = 9;  // 小渠道
+	optional string bigChannel      = 10;	// 大渠道
+	optional string model       = 11;       //机型
+	optional string xingeToken = 12;        //信鸽设备token
+
+}
+
+message CmdAccountLoginRspMsg {
+	required int32 rsqCode     = 1;
+	required string rsqCodeMsg = 2;		//如果没有角色，下发随机名字
+	required int32 playerCount = 3;		//0没有角色  1 有角色，服务器马上下发角色信息
+	optional int32 serverTime = 4;		//服务器时间
+
+
+}
+
+//{10104} 断线重连
+message CmdAccountQuickLoginReqMsg {
+	required int32 userType       = 1;
+	required string openID        = 2;
+	required string token         = 3;
+	required string timeStamp     = 4;
+	optional int32 playerId		  = 5; //角色ID
+	optional int32  age= 6;//玩家年龄
+	optional int32  authState= 7;//玩家是否成年
+
+}
+
+message CmdAccountQuickLoginRspMsg {
+	required int32 result = 1;
+}
+
+message CmdAccountInitRspMsg {
+}
+
+message CmdAccountUpdateRspMsg {
+	required int32 opType = 1;		//1踢下线   2 服务器关闭
+}

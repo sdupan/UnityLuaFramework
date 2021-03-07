@@ -1,0 +1,56 @@
+package com.game.protobuf;
+
+// 性别
+enum CmdGenderType {
+	Male = 1; // 男性
+	Female = 2; // 女性
+}
+
+// 职业
+enum CmdProfessionType {
+	Warrior = 1; // 战士
+	Wizard = 2; // 法师
+	Shooter = 3; // 射手
+	Command = 4;	//控制
+}
+
+// request 的附加消息
+message CmdAppendReqInfo {
+}
+
+// response 的附加消息 请求结果
+message CmdResultInfo {
+    required int32 code=1;
+    optional string tips=2;
+}
+
+// response 的附加消息
+message CmdAppendRspInfo {
+    required CmdResultInfo cmdResultInfo = 1;
+}
+
+message CmdPlayerBaseHeroInfo {
+	required int32 heroId = 1;
+	optional int32 level = 2;
+	optional int32 curStar = 3;
+	optional int32 battlePower = 4;
+	optional string heroObjId = 5;
+	optional int32 vocationLv = 6;
+	repeated int32 skills = 7;
+
+}
+
+// 玩家信息
+message CmdPlayerInfo {
+    required int32 playerId = 1; // 角色Id
+    optional string nickname = 2; // 角色名
+    optional CmdGenderType cmdGenderType = 3; // 性别
+    optional CmdProfessionType cmdProfessionType = 4; // 职业
+    optional int32 level = 5; // 等级
+    optional int32 postId = 6;	//职位
+    optional int32 totalContribution = 7;	//历史贡献
+    optional int32 curContribution = 8;		//当前贡献
+    optional int32 battlePower = 9;			//战力
+    optional int32 logoutDate = 10;			//状态 0在线  大于0是离线时间戳
+    optional int32 icon = 11;				//玩家头像
+}

@@ -1,0 +1,24 @@
+package com.game.cmd;
+
+message CmdData {
+    required CmdMessage message = 1;
+    optional bytes data = 2;
+    optional sint32 appendCode = 3;
+    optional bytes appendData = 4;
+    optional bool compress = 5;//data 是否压缩
+}
+
+message CmdMessage {
+    required sint32 messageId=1;
+    required sint32 serverId=2;
+    optional sint32 playerId=3;
+    optional int64 clientTime=4;
+    optional int64 serverTime=5;
+	optional sint32 index=6;//命令序号(用于标识唯一请求)
+	optional sint32 serverIndex = 7;
+}
+
+message CmdTest{
+	required uint32 id=1;
+    required string name=2;
+}

@@ -1,0 +1,30 @@
+-----------------------------------------------------------------
+--脚本作用描述
+-----------------------------------------------------------------
+function Awake()
+	print("Lua Awake...")
+end
+
+function OnStateEnter(animator, stateInfo, layerIndex)
+	print("Lua OnStateEnter...")
+end
+
+function OnStateExit(animator, stateInfo, layerIndex)
+	print("Lua OnStateExit...")
+end
+
+function OnStateUpdate(animator, stateInfo, layerIndex)
+	print("Lua OnStateUpdate...")
+end
+
+function OnStateMove(animator, stateInfo, layerIndex)
+	print("Lua OnStateMove...")
+end
+
+function OnStateIK(animator, stateInfo, layerIndex)
+	print("Lua OnStateIK...")
+end
+
+function OnDestroy()
+    print("Lua Destroy...")
+end

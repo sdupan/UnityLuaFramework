@@ -1,0 +1,22 @@
+-----------------------------------------------------------------
+--脚本作用描述
+-----------------------------------------------------------------
+function Awake()
+	print("Lua Awake...")
+end
+
+function Start()
+	print("Lua Start...")
+end
+
+function Update()
+
+end
+
+function AnimatorEvent(params)
+	print("Lua AnimatorEvent...", params)
+end
+
+function OnDestroy()
+    print("Lua Destroy...")
+end
